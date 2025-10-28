@@ -1,0 +1,16 @@
+# PDF Processing Tools - Dependencies
+
+# Core PDF libraries
+PyPDF2>=3.0.0
+pdfplumber>=0.10.0
+
+# PDF generation and manipulation
+reportlab>=4.0.0
+
+# Optional: OCR support (uncomment if needed)
+# pytesseract>=0.3.10
+# pdf2image>=1.16.3
+
+# Optional: Advanced PDF features (uncomment if needed)
+# pikepdf>=8.0.0
+# pdfminer.six>=20221105
