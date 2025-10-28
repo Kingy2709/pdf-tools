@@ -3,9 +3,13 @@
 # Core PDF libraries
 PyPDF2>=3.0.0
 pdfplumber>=0.10.0
+PyMuPDF>=1.23.0  # Also known as fitz
 
 # PDF generation and manipulation
 reportlab>=4.0.0
+
+# Word document support
+python-docx>=1.0.0
 
 # Optional: OCR support (uncomment if needed)
 # pytesseract>=0.3.10

@@ -2,7 +2,31 @@
 
 Collection of Python scripts for automated PDF processing, merging, renaming, and metadata management.
 
+## 🚀 New: Shared Utilities Module
+
+All scripts now use **`pdf_utils.py`** for common operations:
+- Text extraction (with fallbacks)
+- Metadata reading/writing (atomic operations)
+- PDF merging, splitting, page extraction
+- Word document conversion
+- File safety utilities
+
+This ensures consistent behavior and easier maintenance across all tools.
+
 ## Scripts
+
+### Core Utilities
+- **`pdf_utils.py`** ⭐ Shared utilities module (imported by other scripts)
+  - Text extraction with fallback support
+  - Atomic metadata operations
+  - PDF merge/split functions
+  - Word-to-PDF conversion helpers
+  - Safe filename generation
+
+### New Tools
+- **`pdf-merge.py`** - Merge multiple PDFs into one file
+- **`pdf-split.py`** - Split PDF into pages or extract specific pages
+- **`word-to-pdf.py`** - Convert Word documents to PDF (requires LibreOffice)
 
 ### Letterhead & Merging
 - **`merge_letterhead_and_rename.py`** - Auto-overlay clinic letterhead with downloaded PDFs and rename based on parsed content
@@ -45,10 +69,37 @@ Collection of Python scripts for automated PDF processing, merging, renaming, an
 ```bash
 # Install dependencies
 source venv/bin/activate
-pip install PyPDF2 pdfplumber reportlab
+pip install -r requirements.txt
+
+# For Word-to-PDF conversion, also install LibreOffice:
+# macOS: brew install libreoffice
+# Linux: sudo apt install libreoffice
+# Windows: Download from libreoffice.org
+
+# Test installation
+python pdf_utils.py
 
 # Run a script
 ./run_merge_letterhead.sh
+```
+
+## Quick Examples
+
+```bash
+# Merge PDFs
+python pdf-merge.py file1.pdf file2.pdf file3.pdf -o combined.pdf
+
+# Split PDF into individual pages
+python pdf-split.py document.pdf -o output_dir/
+
+# Extract specific pages (1-indexed)
+python pdf-split.py document.pdf --pages 1,3,5 -o selected.pdf
+
+# Convert Word to PDF
+python word-to-pdf.py letter.docx -o letter.pdf
+
+# Batch convert Word documents
+python word-to-pdf.py *.docx
 ```
 
 ## Configuration
